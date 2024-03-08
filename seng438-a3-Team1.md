@@ -329,7 +329,35 @@ Text…
 
 # 6 Pros and Cons of coverage tools used and Metrics you report
 
-Text…
+Coverage Tool used: EclEmma 
+
+Multiple Coverage Metrics. The tool EcL offers supports various coverage metrics such as line coverage, branch coverage, instruction coverage and method coverage. This allows us as developers to gain insights into different aspects of their code's test coverage and make informed decisions about testing strategies.
+
+Visual Representation: EclEmma provides visual representations of code coverage within the Eclipse IDE, making it easier for developers to interpret and understand the coverage data. This was represented via the table chart with distinct colouring for the coverage of each class
+
+Customizable Reporting: EclEmma allows us as developers to customize coverage reports according to our specific requirements, enabling us to focus on the most relevant metrics and information. For example, we were able to substitute condition coverage with method coverage as advised. 
+
+Integration with Eclipse: EclEmma seamlessly integrates with the Eclipse IDE, making it easy to use and convenient for us developers who are already familiar with the Eclipse environment. Furthermore, it was available directly on the Eclipse marketplace so the installation was very simple and already part of the default setup. 
+
+Real-time Coverage Analysis: EclEmma provides real-time feedback on code coverage, allowing developers to identify areas of code that are not adequately tested and make improvements immediately.
+
+Cons of ElcEmma
+Missing Key Metric:  ElcEmma did not have condition coverage which was a coverage metric we were very interested in and wanted to include in the lab. However it did have alternative coverage metrics which we could use. 
+
+Limited to Java: EclEmma is specifically designed for Java development within the Eclipse IDE, so it may not be suitable for projects using other programming languages or development environments.
+
+Eclipse Dependent: Since EclEmma is tightly integrated with Eclipse, it may not be suitable for developers who prefer using other IDEs or development tools.
+
+Performance Heavy: Like many code coverage tools, EclEmma introduces some performance overhead when running tests, although this overhead is generally minimal and did not significantly impact development workflows.
+Lack of Graphical Features: While EclEmma provides basic code coverage analysis capabilities, it may lack some advanced features found in other code coverage tools, such as graphical representation and modelling of the coverage.
+
+Metrics Used: 
+
+Instruction Coverage
+Branch Coverage 
+Method Coverage
+
+While using EclEmma for code coverage analysis, I utilized three essential metrics to assess the comprehensiveness of testing within the codebase: Instruction Coverage, Branch Coverage, and Method Coverage. Instruction Coverage measures the proportion of executable instructions exercised during testing, offering insight into the granularity of code paths explored. Branch Coverage evaluates the percentage of decision points in the code, ensuring that both true and false outcomes of branches are adequately tested. Meanwhile, Method Coverage assesses the extent to which individual methods or functions are tested, aiding in the identification of potentially overlooked or untested functionalities. By employing this combination of metrics, a more holistic view of the code's test coverage is obtained, facilitating targeted improvements and ensuring the reliability and robustness of the software. We were able to achieve the target measure means for all coverage metrics, however for instruction coverage we achieved a maximum of 88.4%  for range class because achieving 90% was infeasible. Achieving 90% was infeasible due to the fact that it was an inaccessible exception within a lower level function, but this exception would continuously be caught at a higher level in the constructor. Hence, it was not possible to access the code catching the exception in the lower level function.
 
 # 7 A comparison on the advantages and disadvantages of requirements-based test generation and coverage-based test generation.
 
@@ -345,4 +373,4 @@ Throughout this assignment, we did not face any major challenges as a group. How
 
 # 10 Comments/feedback on the lab itself
 
-Text…
+As a group we really enjoyed this lab, it was helpful getting us familiar with the testing process, and using some concepts we learned in class in a real time environment. Additionally, we all learned a lot about JUnit test, and how to write them correctly. We found the lab document itself great and very easy to understand. Furthermore, the lab structure allowed for effective learning of testing methodologies and signified the importance of testing in a variety of methods.

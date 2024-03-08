@@ -353,9 +353,9 @@ Lack of Graphical Features: While EclEmma provides basic code coverage analysis 
 
 Metrics Used: 
 
-Instruction Coverage
-Branch Coverage 
-Method Coverage
+- Instruction Coverage
+- Branch Coverage 
+- Method Coverage
 
 While using EclEmma for code coverage analysis, I utilized three essential metrics to assess the comprehensiveness of testing within the codebase: Instruction Coverage, Branch Coverage, and Method Coverage. Instruction Coverage measures the proportion of executable instructions exercised during testing, offering insight into the granularity of code paths explored. Branch Coverage evaluates the percentage of decision points in the code, ensuring that both true and false outcomes of branches are adequately tested. Meanwhile, Method Coverage assesses the extent to which individual methods or functions are tested, aiding in the identification of potentially overlooked or untested functionalities. By employing this combination of metrics, a more holistic view of the code's test coverage is obtained, facilitating targeted improvements and ensuring the reliability and robustness of the software. We were able to achieve the target measure means for all coverage metrics, however for instruction coverage we achieved a maximum of 88.4%  for range class because achieving 90% was infeasible. Achieving 90% was infeasible due to the fact that it was an inaccessible exception within a lower level function, but this exception would continuously be caught at a higher level in the constructor. Hence, it was not possible to access the code catching the exception in the lower level function.
 

@@ -18,37 +18,283 @@ This assignment advanced from the previous work on the JFreeChart program, trans
 
 # 2 Manual data-flow coverage calculations for X and Y methods
 
-## calculateColumnTotal
+## DataUtilities.calculateColumnTotal
 
 ### DFG
 
 <div style="background-color: #f0f0f0; width: 360px;">
-    <img src="CombineColumnTotal.drawio.png" alt="CombineColumnTotal.drawio.png" width="360"/>
+    <img src="CalculateColumnTotal.drawio.png" alt="CalculateColumnTotal.drawio.png" width="360"/>
 </div>
 
-### DU Path Sets
+### DU-Path Sets
 
 ### DU-Pairs
 
+*data*
+
+(1,2), (1, 4), (1, 6), (1, 10)
+
+*column*
+
+(1, 6), (1, 10)
+
+*total*
+
+(3, 8), (3, 12)
+
+*rowCount*
+
+(4, 5), (4, 9)
+
+*r*
+
+(5, 5), (5, 6)
+
+*n*
+
+(6, 7), (6, 8), (10, 11), (10, 12)
+
+*r2*
+
+(9, 9), (9, 10)
+
 ### DU-Pairs per Test
+
+> Important Note: calculateColumnTotal never goes into the second loop, unless rowCount is negative. This triggers an infinite loop.
+
+calculateColumnTotalForTwoValues
+
+du(1, 2, data), du(1, 4, data), du(1, 6, data)
+
+du(1, 6, column)
+
+du(3, 8, total)
+
+du(4, 5, rowCount), du(4, 9, rowCount)
+
+du(5, 5, r), du(5, 6, r)
+
+du(6, 7, n), du(6, 8, n)
+
+du(9, 9, r2)
+
+calculateColumnTotalFor5NegativeValues
+
+du(1, 2, data), du(1, 4, data), du(1, 6, data)
+
+du(1, 6, column)
+
+du(3, 8, total)
+
+du(4, 5, rowCount), du(4, 9, rowCount)
+
+du(5, 5, r), du(5, 6, r)
+
+du(6, 7, n), du(6, 8, n)
+
+du(9, 9, r2)
+
+calculateColumnTotalForMixedPositiveAndNegativeValues
+
+du(1, 2, data), du(1, 4, data), du(1, 6, data)
+
+du(1, 6, column)
+
+du(3, 8, total)
+
+du(4, 5, rowCount), du(4, 9, rowCount)
+
+du(5, 5, r), du(5, 6, r)
+
+du(6, 7, n), du(6, 8, n)
+
+du(9, 9, r2)
+
+calculateColumnTotalForEmptyData
+
+du(1, 2, data), du(1, 4, data)
+
+du(3, exit, total)
+
+du(4, 5, rowCount), du(4, 9, rowCount)
+
+du(5, 5, r)
+
+du(9, 9, r2)
+
+calculateColumnTotalForLargeNumberOfRows
+
+du(1, 2, data), du(1, 4, data), du(1, 6, data)
+
+du(1, 6, column)
+
+du(3, 8, total)
+
+du(4, 5, rowCount), du(4, 9, rowCount)
+
+du(5, 5, r), du(5, 6, r)
+
+du(6, 7, n), du(6, 8, n)
+
+du(9, 9, r2)
+
+calculateColumnTotalThatContainsANullValue
+
+du(1, 2, data), du(1, 4, data), du(1, 6, data)
+
+du(1, 6, column)
+
+du(3, 8, total)
+
+du(4, 5, rowCount), du(4, 9, rowCount)
+
+du(5, 5, r), du(5, 6, r)
+
+du(6, 7, n), du(6, 8, n)
+
+du(9, 9, r2)
+
+calculateColumnTotalThatContainsInvalidColumnIndex
+
+du(1, 2, data), du(1, 4, data), du(1, 6, data)
+
+du(1, 6, column)
+
+du(3, 8, total)
+
+du(4, 5, rowCount), du(4, 9, rowCount)
+
+du(5, 5, r), du(5, 6, r)
+
+du(6, 7, n), du(6, 8, n)
+
+du(9, 9, r2)
+
+calculateColumnTotalForLargeColumnIndex
+
+du(1, 2, data), du(1, 4, data), du(1, 6, data)
+
+du(1, 6, column)
+
+du(3, 8, total)
+
+du(4, 5, rowCount), du(4, 9, rowCount)
+
+du(5, 5, r), du(5, 6, r)
+
+du(6, 7, n), du(6, 8, n)
+
+du(9, 9, r2)
+
+calculateColumnTotalThatContainsNonNullValue
+
+du(1, 2, data), du(1, 4, data), du(1, 6, data)
+
+du(1, 6, column)
+
+du(3, 8, total)
+
+du(4, 5, rowCount), du(4, 9, rowCount)
+
+du(5, 5, r), du(5, 6, r)
+
+du(6, 7, n), du(6, 8, n)
+
+du(9, 9, r2)
+
+testCalculateColumnTotalWithValidValues
+
+du(1, 2, data), du(1, 4, data), du(1, 6, data)
+
+du(1, 6, column)
+
+du(3, 8, total)
+
+du(4, 5, rowCount), du(4, 9, rowCount)
+
+du(5, 5, r), du(5, 6, r)
+
+du(6, 7, n), du(6, 8, n)
+
+du(9, 9, r2)
+
+testCalculateColumnTotalWithNullValues
+
+du(1, 2, data), du(1, 4, data), du(1, 6, data)
+
+du(1, 6, column)
+
+du(3, exit, total)
+
+du(4, 5, rowCount), du(4, 9, rowCount)
+
+du(5, 5, r), du(5, 6, r)
+
+du(6, 7, n), du(6, 8, n)
+
+du(9, 9, r2)
+
+testCalculateColumnTotalWithInvalidRowIndex
+
+du(1, 2, data), du(1, 4, data), du(1, 6, data)
+
+du(1, 6, column)
+
+du(3, 8, total)
+
+du(4, 5, rowCount), du(4, 9, rowCount)
+
+du(5, 5, r), du(5, 6, r)
+
+du(6, 7, n), du(6, 8, n)
+
+du(9, 9, r2)
+
+testCalculateColumnTotalWithTotalGreaterThanZero
+
+du(1, 2, data), du(1, 4, data), du(1, 6, data)
+
+du(1, 6, column)
+
+du(3, 8, total)
+
+du(4, 5, rowCount), du(4, 9, rowCount)
+
+du(5, 5, r), du(5, 6, r)
+
+du(6, 7, n), du(6, 8, n)
+
+du(9, 9, r2)
+
+testCalculateColumnTotalWithNoValidRows
+
+du(1, 2, data), du(1, 4, data), du(1, 6, data)
+
+du(1, 6, column)
+
+du(3, exit, total)
+
+du(4, 5, rowCount), du(4, 9, rowCount)
+
+du(5, 5, r), du(5, 6, r)
+
+du(6, 7, n), du(6, 8, n)
+
+du(9, 9, r2)
 
 ### DU-Pair Coverage
 
-- the data flow graph
+DU-Pair Coverage = 12/18 * 100 = 66.67%
 
-- the def-use sets per statement
-
-- list all DU-pairs per variable
-
-- for each test case show which pairs are covered
-
-- calculate the DU-Pair coverage.
+This is because the second loop condition was never executed in our test suite.
 
 
 
 
 
+## Range.combine
 
+### DFG
 
 <div style="background-color: #f0f0f0; width: 360px;">
     <img src="RangeCombine.drawio.png" alt="RangeCombine.drawio.png" width="360"/>

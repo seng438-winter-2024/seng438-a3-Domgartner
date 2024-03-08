@@ -18,7 +18,56 @@ This assignment advanced from the previous work on the JFreeChart program, trans
 
 # 2 Manual data-flow coverage calculations for X and Y methods
 
-Text…
+## calculateColumnTotal
+
+### DFG
+
+<div style="background-color: #f0f0f0; width: 360px;">
+    <img src="CombineColumnTotal.drawio.png" alt="CombineColumnTotal.drawio.png" width="360"/>
+</div>
+
+### DU Path Sets
+
+### DU-Pairs
+
+### DU-Pairs per Test
+
+### DU-Pair Coverage
+
+- the data flow graph
+
+- the def-use sets per statement
+
+- list all DU-pairs per variable
+
+- for each test case show which pairs are covered
+
+- calculate the DU-Pair coverage.
+
+
+
+
+
+
+
+<div style="background-color: #f0f0f0; width: 360px;">
+    <img src="RangeCombine.drawio.png" alt="RangeCombine.drawio.png" width="360"/>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # 3 A detailed description of the testing strategy for the new unit test
 

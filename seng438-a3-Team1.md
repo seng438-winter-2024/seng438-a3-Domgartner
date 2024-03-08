@@ -23,7 +23,7 @@ This assignment advanced from the previous work on the JFreeChart program, trans
 ### DFG
 
 <div style="background-color: #f0f0f0; width: 360px;">
-    <img src="CalculateColumnTotal.drawio.png" alt="CalculateColumnTotal.drawio.png" width="360"/>
+    <img src="CalculateColumnTotal.light.png" alt="CalculateColumnTotal.light.png" width="360"/>
 </div>
 
 ### DU-Path Sets
@@ -297,7 +297,7 @@ This is because the second loop condition was never executed in our test suite.
 ### DFG
 
 <div style="background-color: #f0f0f0; width: 360px;">
-    <img src="RangeCombine.drawio.png" alt="RangeCombine.drawio.png" width="360"/>
+    <img src="RangeCombine.light.png" alt="RangeCombine.light.png" width="360"/>
 </div>
 
 

@@ -481,7 +481,21 @@ This test plan outlines a structured approach to conducting white box testing fo
 
 # 4 A high level description of five selected test cases you have designed using coverage information, and how they have increased code coverage
 
-Text…
+Range - combineIgnoringWithMaxd2NaNMin()
+- This test was used to test the special case of variable d2 being NaN in the private min() function. This function was previously covered through the black box tests exercised in assignment 2, however the case where d2 is NaN was not previously covered. This test calls the combineIgnoringNaN() function, as it uses the min() function as a helper method. This way we were able to effectively test the min() function and achieve increased statement and branch coverage on the method. This test passes in a new Range with NaN values, which are then used in the min() function to determine the min of the Range. This test allowed us to achieve both branch and statement coverage in the min() function. Evaluation of the internal structure of the SUT and consideration of boundary value methodologies allowed us to create this specified test case to increase code coverage.
+
+Range - combineIgnoringWithMaxd2NaNMax()
+- This test was used to test the special case of variable d2 being NaN in the private max() function. This function was previously covered through the black box tests exercised in assignment 2, however the case where d2 is NaN was not previously covered. This test calls the combineIgnoringNaN() function, as it uses the max() function as a helper method. This way we were able to effectively test the max() function and achieve increased statement and branch coverage on the method. This test passes in a new Range with NaN values, which are then used in the max() function to determine the max of the Range. This test allowed us to achieve both branch and statement coverage in the max() function. Evaluation of the internal structure of the SUT and consideration of boundary value methodologies allowed us to create this specified test case to increase code coverage.
+
+Range - testEqualsNonRangeObject()
+- This test was used to test the equals() function with a non Range Object passed in as the argument. The equals() function in Range.java was not previously tested in our previous assignment. This test allowed us to achieve both increased branch and statement coverage, allowing us to evaluate the "obj instanceof Range" condition to false. This was done through evaluating the structure of the code, as well as considering the boundary value methods which would allow us to test this method effectively and increase code coverage.
+
+Range - testScaleWithNegativeFactor()
+- This test was used to test the scale() function with a negative value to scale by. This function was not previously tested in our previous assignment. This test allowed us to achieve both increased branch and statement coverage, allowing us to evaluate if the method properly throws an IllegalArgumentException if factor < 0. This was done through evaluating the structure of the code, as well as considering the boundary value methods which would allow us to test this method effectively and increase code coverage.
+
+DataUtilities - calculateRowTotalForNegativeColumnCount()
+- This test was used to test the calculateRowTotal() function in DataUtilities. This method was previously tested in our black box test suite in assignment 2, however this test allowed us to evaluate a branch to true, further increasing both branch and statement coverage. The test was used to return a negative column count, allowing "colCount < 0" to be evaluated true and enter the if statement branch, increasing our test coverage. This was done through evaluating the structure of the code, as well as considering the boundary value methods which would allow us to test this method effectively and increase code coverage.
+
 
 # 5 A detailed report of the coverage achieved of each class and method (a screen shot from the code cover results in green and red color would suffice)
 

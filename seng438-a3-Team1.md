@@ -485,7 +485,40 @@ Text…
 
 # 5 A detailed report of the coverage achieved of each class and method (a screen shot from the code cover results in green and red color would suffice)
 
-Text…
+## DataUtilities
+
+### Statement Coverage Metric
+<div style="background-color: #f0f0f0; width: 800px;">
+    <img src="CoverageMetricScreenshots/DataUtilitiesStatementCoverage.png" alt="DataUtilities Statement Coverage" width="800"/>
+</div>
+
+### Branch Coverage Metric
+<div style="background-color: #f0f0f0; width: 800px;">
+    <img src="CoverageMetricScreenshots/DataUtilitiesBranchCoverage.png" alt="DataUtilities Branch Coverage" width="800"/>
+</div>
+
+### Method Coverage Metric
+<div style="background-color: #f0f0f0; width: 800px;">
+    <img src="CoverageMetricScreenshots/DataUtilitiesMethodCoverage.png" alt="DataUtilities Method Coverage" width="800"/>
+</div>
+
+## Range
+
+### Statement Coverage Metric
+<div style="background-color: #f0f0f0; width: 800px;">
+    <img src="CoverageMetricScreenshots/RangeStatementCoverage.png" alt="Range Statement Coverage" width="800"/>
+</div>
+
+### Branch Coverage Metric
+<div style="background-color: #f0f0f0; width: 800px;">
+    <img src="CoverageMetricScreenshots/RangeBranchCoverage.png" alt="Range Branch Coverage" width="800"/>
+</div>
+
+### Method Coverage Metric
+<div style="background-color: #f0f0f0; width: 800px;">
+    <img src="CoverageMetricScreenshots/RangeMethodCoverage.png" alt="Range Method Coverage" width="800"/>
+</div>
+
 
 # 6 Pros and Cons of coverage tools used and Metrics you report
 

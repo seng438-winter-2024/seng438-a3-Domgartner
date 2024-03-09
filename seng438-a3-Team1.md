@@ -288,7 +288,7 @@ du(9, 9, r2)
 
 DU-Pair Coverage = 12/18 * 100 = 66.67%
 
-This is because the second loop condition was never executed in our test suite.
+This is because the second loop condition was never executed in our test suite as it is infeasable tp test this condition. In this case, r2 is initialized to 0, and the condition to enter the for loop is if r2 > rowCount. However, rowCount can never be negative. Thus, while r2 = 0, r2 can never be greater than rowCount, which is >= 0.
 
 ## Range.combine
 

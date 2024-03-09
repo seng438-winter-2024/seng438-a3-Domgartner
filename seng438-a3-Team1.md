@@ -491,6 +491,20 @@ Text…
 <div style="background-color: #f0f0f0; width: 800px;">
     <img src="CoverageMetricScreenshots/DataUtilitiesStatementCoverage.png" alt="DataUtilities Statement Coverage" width="800"/>
 </div>
+Reason for 89.9% Statment Coverage: When testing methods such as calculateColumnTotal(), calculateRowTotal(), and getCumulativePercentages(), three infeasible tests are present, which reduce the ability to achive past 89.9% statement coverage without changing the logic of the code.
+In calculateColumnTotal(), total is initialized to 0 and a later if statement checks if total > 0, leading to an infeasible test case as the branch can never evaluate true.
+Once again in calculateColumnTotal(), a for loop initializes r2 to 0, and checks if r2 > rowCount. However rowCount can only be >= 0. Therefore another infeasible test is present whwen trying to evaluate the condition of the branch to true, limiting the amount of executable statements able to be tested.
+
+<img width="450" alt="Screenshot 2024-03-08 at 8 10 24 PM" src="https://github.com/seng438-winter-2024/seng438-a3-Domgartner/assets/113631453/ddf8ee20-c8a5-478e-9567-f37a326a9344">
+<img width="450" alt="Screenshot 2024-03-08 at 8 12 07 PM" src="https://github.com/seng438-winter-2024/seng438-a3-Domgartner/assets/113631453/fcd9da9e-53eb-42fe-aa31-63f16a60f979">
+
+In calculateRowTotal(), a for loop initializes c2 to 0, and checks if c2 > columnCount. However columnCount can only be >= 0. Therefore another infeasible test is present whwen trying to evaluate the condition of the branch to true, limiting the amount of executable statements able to be tested.
+
+<img width="450" alt="Screenshot 2024-03-08 at 8 16 38 PM" src="https://github.com/seng438-winter-2024/seng438-a3-Domgartner/assets/113631453/7a2ff4e2-caa5-4cec-89f4-ecb97d88325d">
+
+In getCumulativePercentages(), i2 is initialized to 0 in a for loop. The condition checked is i2 > data.getItemCount(). However data.getItemCount() >= 0, therefore another infeasible test is present whwen trying to evaluate the condition of the branch to true, limiting the amount of executable statements able to be tested.
+
+<img width="450" alt="Screenshot 2024-03-08 at 8 14 40 PM" src="https://github.com/seng438-winter-2024/seng438-a3-Domgartner/assets/113631453/4ab2cdb1-3465-406f-a416-2ac8808a180b">
 
 ### Branch Coverage Metric
 <div style="background-color: #f0f0f0; width: 800px;">
@@ -508,6 +522,10 @@ Text…
 <div style="background-color: #f0f0f0; width: 800px;">
     <img src="CoverageMetricScreenshots/RangeStatementCoverage.png" alt="Range Statement Coverage" width="800"/>
 </div>
+Reason for 88.4% Statment Coverage: When testing certain methods in the Range.java class, some infeasible test cases arose. These occured in the getLowerBound(), getUpperBound(), and getLength() functions. Each if these methods have a conditional branch that checks if lower > upper. However, it is infeasible to test this as the Range Constructor checks if lower > upper and throws an IllegalArgumentException if true. Therefore, the creation of a Range object where lower > upper is infeasible, and testing this equality to be true is not possible in the methods specified, leading to a maximum statement coverage of 88.4%.
+
+<img width="500" alt="Screenshot 2024-03-08 at 8 05 46 PM" src="https://github.com/seng438-winter-2024/seng438-a3-Domgartner/assets/113631453/5b635362-c048-45ec-b536-d5c71a66acee">
+
 
 ### Branch Coverage Metric
 <div style="background-color: #f0f0f0; width: 800px;">

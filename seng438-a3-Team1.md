@@ -432,7 +432,52 @@ DU-Pair Coverage = 8/8 * 100 = 100%
 
 # 3 A detailed description of the testing strategy for the new unit test
 
-Text…
+Throughout this lab, we detailed our efforts to improve code coverage through white box testing. Our approach involved utilizing metrics such as Instruction Coverage, Branch Coverage, and Method Coverage to guide our actions. We developed new unit tests tailored to specific areas where coverage was lacking, ensuring that all critical instructions, branches, and methods were thoroughly exercised. Additionally, we revisited and refined existing tests to fill any gaps in coverage, fine-tuning them to address previously overlooked sections of the code. Through this effort, we successfully boosted coverage across the board, resulting in a strong improvement in analyzing the Range and Utilities classes. The below test plan illustrates our flow of work. 
+
+### Test Plan for White Box Testing:
+
+### Testing Plan: 
+Goal:
+Testing two classes, referred to as DataRange and DataUtilities classes, using white box testing techniques.
+The objective is to ensure adequate coverage of the code under test, including instruction coverage, method coverage or condition coverage, and branch coverage.
+This technique will provide thorough testing of the internal structure of the application.
+
+### Test Coverage Criteria:
+
+Instruction Coverage: Ensures that each line of executable code is executed at least once during testing.
+Method Coverage: Verifies that all methods are invoked during testing.
+Branch Coverage: Ensures that all possible branches within conditional statements are traversed.
+
+### Testing Team:
+Hamd Khan, Dominic Gartner, Noel Thomas, Alex Mclean
+
+### Test Development Approach:
+
+We will all collaborate to design and implement test cases to achieve the desired coverage criteria. Each team member will be responsible for developing test cases for specific components or functionalities.
+
+#### The test development process will involve the following steps:
+
+Initial Analysis: Understanding the current coverage of our previous assignments test cases. Will do this by utilizing ElcEmma coverage statistics
+Identification of Test Scenarios: Identifying various scenarios that need to be tested to ensure comprehensive coverage.
+Test Case Design: Designing test cases based on identified scenarios, ensuring coverage of all code paths, branches and methods or conditions.
+Test Case Implementation: Implementing test cases using the EclEmma testing framework or experimenting with other frameworks for better analysis.
+Execution and Analysis: Executing test cases, analyzing results, and identifying areas of improvement.
+Iteration: Iteratively refining test cases to achieve better coverage and address any uncovered code paths.
+
+### Test Suite Structure:
+
+The test suite will consist of individual test cases targeting specific functionalities or components of the Range and DataUtilities classes. Each test case will be organized based on its relevance to instruction coverage, method coverage, and branch coverage. Test cases will be grouped into suites for easier management and execution.
+
+### Coverage Goals:
+
+Instruction Coverage: Aim to achieve 90% instruction coverage for both DataUtilities and Range.
+Method Coverage (note ElcEmma does not provide condition coverage) : Ensure that all methods within the Range and DataUtilities classes are invoked at least once during testing.
+Branch Coverage:  Aim to achieve 70% branch coverage for both DataUtilities and Range.
+
+### Conclusion:
+
+This test plan outlines a structured approach to conducting white box testing for the classes, with the aim of achieving comprehensive coverage and ensuring the reliability and robustness of the given classes.
+
 
 # 4 A high level description of five selected test cases you have designed using coverage information, and how they have increased code coverage
 
@@ -444,7 +489,9 @@ Text…
 
 # 6 Pros and Cons of coverage tools used and Metrics you report
 
-Coverage Tool used: EclEmma 
+Coverage Tool used: EclEmma
+
+### Pros of EclEmma:
 
 Multiple Coverage Metrics. The tool EcL offers supports various coverage metrics such as line coverage, branch coverage, instruction coverage and method coverage. This allows us as developers to gain insights into different aspects of their code's test coverage and make informed decisions about testing strategies.
 
@@ -456,7 +503,8 @@ Integration with Eclipse: EclEmma seamlessly integrates with the Eclipse IDE, ma
 
 Real-time Coverage Analysis: EclEmma provides real-time feedback on code coverage, allowing developers to identify areas of code that are not adequately tested and make improvements immediately.
 
-Cons of ElcEmma
+### Cons of EclEmma:
+
 Missing Key Metric:  ElcEmma did not have condition coverage which was a coverage metric we were very interested in and wanted to include in the lab. However it did have alternative coverage metrics which we could use. 
 
 Limited to Java: EclEmma is specifically designed for Java development within the Eclipse IDE, so it may not be suitable for projects using other programming languages or development environments.

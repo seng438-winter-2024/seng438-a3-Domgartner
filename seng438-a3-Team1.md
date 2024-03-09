@@ -23,40 +23,42 @@ This assignment advanced from the previous work on the JFreeChart program, trans
 ### DFG
 
 <div style="background-color: #f0f0f0; width: 360px;">
-    <img src="CalculateColumnTotal.light.png" alt="CalculateColumnTotal.light.png" width="360"/>
+    <img src="DFGs/CalculateColumnTotal.light.png" alt="CalculateColumnTotal.light.png" width="360"/>
 </div>
 
-### DU-Path Sets
+### DU Sets
+
+| Statement | Code | DU Sets
+| ------------- |:---------------:| :---------------:|
+| 1 | public static double calculateColumnTotal(Values2D data, int column) | data: {(1,2), (1, 4), (1, 6), (1, 10)}, column: {(1, 6), (1, 10)}
+| 2 | ParamChecks.nullNotPermitted(data, "data"); | data: {(1, 2)}
+| 3 | double total = 0.0; | total: {(3, 8), (3, 12)}
+| 4 | int rowCount = data.getRowCount(); | data: {(1, 4)}, rowCount: {(4,5), (4,9)}
+| 5 | for (int r = 0; r < rowCount; r++) | rowCount: {(4,5)}, r: {(5, 5), (5, 6)}
+| 6 | Number n = data.getValue(r, column); | data: {(1, 6)}, column: {(1, 6)}, r: {(5, 6)}, n: {(6, 7), (6, 8)}
+| 7 | if (n != null) | n: {(6, 7)}
+| 8 | total += n.doubleValue(); | total: {(3, 8)}, n: {(6, 8)}
+| 9 | for (int r2 = 0; r2 > rowCount; r2++) | rowCount: {(4, 9)}, r2: {(9, 9), (9, 10)}
+| 10 | Number n = data.getValue(r2, column); | data: {(1, 10)}, column: {(1, 10)}, n: {(10, 11)}, r2: {(9, 10)}
+| 11 | if (n != null) | n: {(10, 11)}
+| 12 | total += n.doubleValue(); | total: {(3, 12)}, n: {(10, 12)}
+
 
 ### DU-Pairs
 
-*data*
+*data*: (1,2), (1, 4), (1, 6), (1, 10)
 
-(1,2), (1, 4), (1, 6), (1, 10)
+*column*: (1, 6), (1, 10)
 
-*column*
+*total*: (3, 8), (3, 12)
 
-(1, 6), (1, 10)
+*rowCount*: (4, 5), (4, 9)
 
-*total*
+*r*: (5, 5), (5, 6)
 
-(3, 8), (3, 12)
+*n*: (6, 7), (6, 8), (10, 11), (10, 12)
 
-*rowCount*
-
-(4, 5), (4, 9)
-
-*r*
-
-(5, 5), (5, 6)
-
-*n*
-
-(6, 7), (6, 8), (10, 11), (10, 12)
-
-*r2*
-
-(9, 9), (9, 10)
+*r2*: (9, 9), (9, 10)
 
 ### DU-Pairs per Test
 
@@ -288,32 +290,145 @@ DU-Pair Coverage = 12/18 * 100 = 66.67%
 
 This is because the second loop condition was never executed in our test suite.
 
-
-
-
-
 ## Range.combine
 
 ### DFG
 
 <div style="background-color: #f0f0f0; width: 360px;">
-    <img src="RangeCombine.light.png" alt="RangeCombine.light.png" width="360"/>
+    <img src="DFGs/RangeCombine.light.png" alt="RangeCombine.light.png" width="360"/>
 </div>
 
 
+### DU Sets per Statement
 
+| Statement | Code | DU Sets
+| ------------- |:---------------:| :---------------:|
+| 1 | public static Range combine(Range range1, Range range2) | range1: {(1, 2), (1, 4), (1, 5)}, range2: {(1, 3), (1, 4), (1, 5)}
+| 2 | if (range1 == null) | range1: {(1, 2)}
+| 3 | if (range2 == null) | range1: {(1, 3)}
+| 4 | double l = Math.min(range1.getLowerBound(), range2.getLowerBound()); | range1: {(1,4)}, range2: {(1,4)}, l: {4, 6}
+| 5 | double u = Math.max(range1.getUpperBound(), range2.getUpperBound()); | range1: {(1, 5)}, range2: {(1, 5)}, u: {5, 6}
+| 6 | return new Range(l, u); | l: {4, 6}, u: {5, 6}
 
+### DU-Pairs
 
+*range1*: (1, 2), (1, 4), (1, 5)
 
+*range2*: (1, 3), (1, 4), (1, 5)
 
+*l*: (4, 6)
 
+*u*: (5, 6)
 
+### DU-Pairs per Test
 
+combineValidrangeAndNullRange
 
+du(1, 2, range1)
 
+combineNullrangeAndValidRange
 
+du(1, 2, range1)
 
+du(1, 3, range2)
 
+combineNullRanges
+
+du(1, 2, range1)
+
+combineEmptyRangeAndValidRange
+
+du(1, 2, range1), du(1, 4, range1), du(1, 5, range1)
+
+du(1, 3, range2), du(1, 4, range2), du(1, 5, range2)
+
+du(4, 6, l)
+
+du(5, 6, u)
+
+combineValidRangeAndEmptyRange
+
+du(1, 2, range1), du(1, 4, range1), du(1, 5, range1)
+
+du(1, 3, range2), du(1, 4, range2), du(1, 5, range2)
+
+du(4, 6, l)
+
+du(5, 6, u)
+
+combineEmptyRanges
+
+du(1, 2, range1), du(1, 4, range1), du(1, 5, range1)
+
+du(1, 3, range2), du(1, 4, range2), du(1, 5, range2)
+
+du(4, 6, l)
+
+du(5, 6, u)
+
+combineNonIdenticalEmptyRanges
+
+du(1, 2, range1), du(1, 4, range1), du(1, 5, range1)
+
+du(1, 3, range2), du(1, 4, range2), du(1, 5, range2)
+
+du(4, 6, l)
+
+du(5, 6, u)
+
+combineValidRangeAndSubsetRange
+
+du(1, 2, range1), du(1, 4, range1), du(1, 5, range1)
+
+du(1, 3, range2), du(1, 4, range2), du(1, 5, range2)
+
+du(4, 6, l)
+
+du(5, 6, u)
+
+combineSubsetRangeAndValidRange
+
+du(1, 2, range1), du(1, 4, range1), du(1, 5, range1)
+
+du(1, 3, range2), du(1, 4, range2), du(1, 5, range2)
+
+du(4, 6, l)
+
+du(5, 6, u)
+
+combineTouchingValidRanges
+
+du(1, 2, range1), du(1, 4, range1), du(1, 5, range1)
+
+du(1, 3, range2), du(1, 4, range2), du(1, 5, range2)
+
+du(4, 6, l)
+
+du(5, 6, u)
+
+combineOverlappingValidRanges
+
+du(1, 2, range1), du(1, 4, range1), du(1, 5, range1)
+
+du(1, 3, range2), du(1, 4, range2), du(1, 5, range2)
+
+du(4, 6, l)
+
+du(5, 6, u)
+
+combineIdenticalValidRanges
+
+du(1, 2, range1), du(1, 4, range1), du(1, 5, range1)
+
+du(1, 3, range2), du(1, 4, range2), du(1, 5, range2)
+
+du(4, 6, l)
+
+du(5, 6, u)
+
+### DU-Pair Coverage
+
+DU-Pair Coverage = 8/8 * 100 = 100%
 
 # 3 A detailed description of the testing strategy for the new unit test
 

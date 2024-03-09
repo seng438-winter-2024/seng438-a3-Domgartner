@@ -575,7 +575,30 @@ While using EclEmma for code coverage analysis, I utilized three essential metri
 
 # 7 A comparison on the advantages and disadvantages of requirements-based test generation and coverage-based test generation.
 
-Text…
+## Requirements-based test generation
+### Pros
+- Ensures that the software meets the specified requirements
+- Tests the system as a whole, without the constraints of technical knowledge
+- Identify errors in the software's logic and functional requirements
+- Early detection of functional issues
+
+### Cons
+- Requires thorough documentation to communicate the exact functionality of each method in order to develop proper test cases
+- May not cover all possible scenarios, especially those not explicitly mentioned in the requirements
+- Can be time-consuming and expensive to create tests for complex requirements
+
+## coverage-based test generation
+### Pros
+- Ensures that all parts of the code are exercised by the tests
+- Helps in identifying dead code or unused features
+- Helps in identifying areas of the code that may require refactoring or optimization
+
+### Cons
+- Never know if all the requirements are covered using only this metric
+- Requires knowledge of the internal structure of the SUT to cover all metrics effectively
+- Does not guarantee that all requirements are met, as it focuses on code coverage rather than requirements coverage
+- Can be complex to implement for certain types of coverage metrics
+- Tests may not always be meaningful or relevant to the functionality of the software
 
 # 8 A discussion on how the team work/effort was divided and managed
 
